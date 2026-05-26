@@ -1,0 +1,28 @@
+{
+  "project_type": "Next.js 14 App Router portfolio website with Tailwind CSS and Framer Motion",
+  "language": "TypeScript",
+  "build_system": "Next.js with pnpm as package manager",
+  "test_framework": "Next.js build validation (no unit tests required for this static portfolio)",
+  "build_command": "cd /projects/sandbox/dev && pnpm build",
+  "test_command": "cd /projects/sandbox/dev && pnpm build",
+  "verification_instructions": "Run pnpm build to confirm the site compiles without errors. Run pnpm dev to confirm the dev server starts.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "cd /projects/sandbox/dev && pnpm install",
+  "environment_constraints": "Node.js v22 available. Full internet access (OPEN_INTERNET). No Docker needed for this project.",
+  "contribution_requirements": "Greenfield project - no existing contribution guidelines.",
+  "key_patterns": "Next.js 14 App Router with app/ directory, Tailwind CSS v3 for styling, Framer Motion for animations, TypeScript throughout. Dark mode by default with neon yellow/green accent (#E4F12D). Unsplash images for placeholders.",
+  "relevant_files": [
+    "app/layout.tsx",
+    "app/page.tsx",
+    "tailwind.config.ts",
+    "components/Header.tsx",
+    "components/Hero.tsx",
+    "components/StatsBar.tsx",
+    "components/About.tsx",
+    "components/Shop.tsx",
+    "components/Esports.tsx",
+    "components/RaceCalendar.tsx",
+    "components/Footer.tsx"
+  ],
+  "directory_structure": "Standard Next.js 14 App Router: app/ for routes and layouts, components/ for reusable UI components, public/ for static assets, tailwind.config.ts for theme configuration"
+}

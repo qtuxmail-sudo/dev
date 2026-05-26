@@ -1,0 +1,7 @@
+{
+  "task_id": "task-portfolio-site",
+  "task_description": "Build a modern, high-performance personal portfolio and brand hub website using Next.js 14, Tailwind CSS, and Framer Motion. Dark mode with neon yellow/green accent, inspired by landonorris.com. Includes Header, Hero, Stats, About, Shop, Esports, Race Calendar, and Footer sections with scroll animations and mobile responsiveness.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}

@@ -1,0 +1,36 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Implement all core UI sections: Header, Hero, Stats Bar, About, Shop, Esports/Lifestyle, Race Calendar, and Footer. Each section follows the design spec with dark aesthetic, neon accents, Unsplash placeholders, and Framer Motion animations.",
+  "status": "pending",
+  "steps": [
+    "Create components/Header.tsx: Sticky header that starts transparent, transitions to dark blur (backdrop-blur-lg bg-black/80) on scroll using a useState + useEffect scroll listener. Left: brand logo text in neon color (bold uppercase). Center: nav links (Home, About, Shop, Esports, Calendar) with hover underline animation. Right: social icons (Instagram, Twitter/X, YouTube) as SVG icons. Include a mobile hamburger menu that opens a full-screen overlay nav with Framer Motion slide-in animation.",
+    "Create components/Hero.tsx: Full-screen section (h-screen) with a dark moody background image from Unsplash (motorsport query, e.g. https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80) with a dark gradient overlay (bg-gradient-to-t from-black via-black/60 to-transparent). Massive uppercase heading with the name (e.g., 'DRIVER. CREATOR. ICON.'). Two CTA buttons: 'Shop Latest Collection' (bg-neon text-black font-bold px-8 py-4 rounded-none uppercase) and 'View Race Calendar' (border-2 border-neon text-neon px-8 py-4 rounded-none uppercase hover:bg-neon hover:text-black transition). Add Framer Motion fade-up animation on mount.",
+    "Create components/StatsBar.tsx: Section below hero with either a CSS marquee animation (infinite scroll) or a 3-column grid. Display stats like '8 Race Wins', '25 Podiums', '4 Pole Positions' in large bold neon numbers with white labels below. Use Framer Motion whileInView for entrance animation.",
+    "Create components/About.tsx: Asymmetrical two-column layout (60/40 split). Left: large action shot from Unsplash (sports car or motorsport). Right: punchy biographical text with uppercase heading 'THE STORY', body text in gray-300, and an animated 'Read Full Story' link that has an arrow sliding right on hover using Framer Motion.",
+    "Create components/Shop.tsx: Dark section with uppercase heading 'LATEST DROP'. Horizontal scrollable carousel (overflow-x-auto with snap-x) showing 4-6 product cards. Each card: dark charcoal background, Unsplash streetwear fashion image, product name, price. On hover: image scales up (scale-105 transition), and a neon 'ADD TO CART' button fades in overlay. Use Framer Motion for staggered entrance animation.",
+    "Create components/Esports.tsx: Distinct section with a subtle halftone/grid texture background (CSS pattern or SVG overlay). Contains: section heading 'BEYOND THE TRACK', a placeholder embedded video (YouTube iframe or dark placeholder box with play button), description text about gaming/lifestyle brand, and a CTA button 'Explore Quadrant' styled in neon.",
+    "Create components/RaceCalendar.tsx: Section with heading 'NEXT RACE'. A single prominent card with: track name (e.g., 'Monaco Grand Prix'), location and date, a placeholder track map image from Unsplash, and a live countdown timer (days/hours/minutes/seconds) implemented with useState + useEffect setInterval. Countdown styled with large neon numbers in grid boxes.",
+    "Create components/Footer.tsx: Large section with: newsletter signup block (heading 'JOIN THE COMMUNITY', dark input field with placeholder 'Enter your email', neon submit button 'SUBSCRIBE'). Below: large repeated brand name in massive outlined/stroke typography. Bottom row: copyright, social links, legal links. All on deep black background.",
+    "Update app/page.tsx to import and render all components in order: Header, Hero, StatsBar, About, Shop, Esports, RaceCalendar, Footer.",
+    "Add scroll-based animations throughout: use Framer Motion's useInView or whileInView with variants for fade-up (opacity 0 to 1, y 30 to 0) on section entrance. Add subtle parallax effect on the Hero background image using Framer Motion useScroll + useTransform.",
+    "Ensure full mobile responsiveness: all grids collapse to single column on mobile, text sizes reduce appropriately, Shop carousel is touch-scrollable, Header switches to hamburger menu below md breakpoint."
+  ],
+  "acceptance_criteria": [
+    "All 8 sections render correctly on the page",
+    "Header becomes opaque/blurred on scroll",
+    "Hero displays full-screen with gradient overlay and two distinct CTA buttons",
+    "Stats display with neon-colored numbers",
+    "Shop carousel is horizontally scrollable with hover effects",
+    "Race Calendar shows a live countdown timer that ticks down",
+    "Footer has a functional-looking newsletter signup form",
+    "Mobile hamburger menu opens/closes with animation",
+    "Framer Motion animations trigger on scroll into viewport",
+    "pnpm build completes without errors"
+  ],
+  "verification": [
+    "cd /projects/sandbox/dev && pnpm build"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

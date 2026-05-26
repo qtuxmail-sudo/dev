@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-neon: #E4F12D;
+  --color-dark: #000000;
+  --color-charcoal: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: #ffffff;
+}
+
+::selection {
+  background-color: var(--color-neon);
+  color: var(--color-dark);
+}

@@ -2,7 +2,7 @@
   "id": "FEAT-002",
   "type": "feat",
   "description": "Implement all core UI sections: Header, Hero, Stats Bar, About, Shop, Esports/Lifestyle, Race Calendar, and Footer. Each section follows the design spec with dark aesthetic, neon accents, Unsplash placeholders, and Framer Motion animations.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Create components/Header.tsx: Sticky header that starts transparent, transitions to dark blur (backdrop-blur-lg bg-black/80) on scroll using a useState + useEffect scroll listener. Left: brand logo text in neon color (bold uppercase). Center: nav links (Home, About, Shop, Esports, Calendar) with hover underline animation. Right: social icons (Instagram, Twitter/X, YouTube) as SVG icons. Include a mobile hamburger menu that opens a full-screen overlay nav with Framer Motion slide-in animation.",
     "Create components/Hero.tsx: Full-screen section (h-screen) with a dark moody background image from Unsplash (motorsport query, e.g. https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80) with a dark gradient overlay (bg-gradient-to-t from-black via-black/60 to-transparent). Massive uppercase heading with the name (e.g., 'DRIVER. CREATOR. ICON.'). Two CTA buttons: 'Shop Latest Collection' (bg-neon text-black font-bold px-8 py-4 rounded-none uppercase) and 'View Race Calendar' (border-2 border-neon text-neon px-8 py-4 rounded-none uppercase hover:bg-neon hover:text-black transition). Add Framer Motion fade-up animation on mount.",

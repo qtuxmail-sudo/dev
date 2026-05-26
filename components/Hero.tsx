@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section ref={ref} id="hero" className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Parallax */}
-      <motion.div className="absolute inset-0" style={{ y }}>
+      <motion.div className="absolute inset-0 bg-charcoal" style={{ y }}>
         <Image
           src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80"
           alt="Motorsport background"

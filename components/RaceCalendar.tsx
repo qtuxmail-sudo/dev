@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const TARGET_DATE = new Date("2025-07-01T14:00:00Z");
+const TARGET_DATE = new Date("2026-03-15T14:00:00Z");
 
 function getTimeRemaining(target: Date) {
   const now = new Date();
@@ -23,20 +23,30 @@ function getTimeRemaining(target: Date) {
 }
 
 export default function RaceCalendar() {
-  const [timeLeft, setTimeLeft] = useState(getTimeRemaining(TARGET_DATE));
+  const [mounted, setMounted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<ReturnType<typeof getTimeRemaining> | null>(null);
 
   useEffect(() => {
+    setMounted(true);
+    setTimeLeft(getTimeRemaining(TARGET_DATE));
+
     const interval = setInterval(() => {
-      setTimeLeft(getTimeRemaining(TARGET_DATE));
+      const remaining = getTimeRemaining(TARGET_DATE);
+      setTimeLeft(remaining);
+
+      if (remaining.days === 0 && remaining.hours === 0 && remaining.minutes === 0 && remaining.seconds === 0) {
+        clearInterval(interval);
+      }
     }, 1000);
+
     return () => clearInterval(interval);
   }, []);
 
   const countdownItems = [
-    { value: timeLeft.days, label: "DAYS" },
-    { value: timeLeft.hours, label: "HOURS" },
-    { value: timeLeft.minutes, label: "MINS" },
-    { value: timeLeft.seconds, label: "SECS" },
+    { value: mounted && timeLeft ? timeLeft.days : 0, label: "DAYS" },
+    { value: mounted && timeLeft ? timeLeft.hours : 0, label: "HOURS" },
+    { value: mounted && timeLeft ? timeLeft.minutes : 0, label: "MINS" },
+    { value: mounted && timeLeft ? timeLeft.seconds : 0, label: "SECS" },
   ];
 
   return (
@@ -54,10 +64,10 @@ export default function RaceCalendar() {
 
         <div className="bg-charcoal rounded-none overflow-hidden grid grid-cols-1 lg:grid-cols-2">
           {/* Image */}
-          <div className="relative aspect-video lg:aspect-auto">
+          <div className="relative aspect-video lg:aspect-auto bg-charcoal">
             <Image
               src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80"
-              alt="Monaco racing circuit"
+              alt="Australian Grand Prix circuit"
               fill
               className="object-cover"
             />
@@ -66,10 +76,10 @@ export default function RaceCalendar() {
           {/* Info */}
           <div className="p-8 lg:p-12 flex flex-col justify-center">
             <h3 className="font-heading text-3xl md:text-4xl uppercase text-white mb-2">
-              MONACO GRAND PRIX
+              AUSTRALIAN GRAND PRIX
             </h3>
             <p className="text-gray-400 uppercase tracking-wider text-sm mb-8">
-              Monte Carlo | June 1, 2025
+              Melbourne | March 15, 2026
             </p>
 
             {/* Countdown */}
@@ -78,8 +88,9 @@ export default function RaceCalendar() {
                 <div
                   key={item.label}
                   className="bg-black px-3 py-4 text-center"
+                  suppressHydrationWarning
                 >
-                  <p className="text-3xl md:text-4xl font-heading text-neon">
+                  <p className="text-3xl md:text-4xl font-heading text-neon" suppressHydrationWarning>
                     {String(item.value).padStart(2, "0")}
                   </p>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">

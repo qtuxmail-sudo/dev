@@ -1,8 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+      setTimeout(() => setSubscribed(false), 3000);
+    }
+  };
+
   return (
     <footer className="w-full bg-black pt-24 pb-8 px-6">
       <motion.div
@@ -17,16 +30,22 @@ export default function Footer() {
           <h2 className="font-heading text-3xl md:text-5xl uppercase text-white mb-6">
             JOIN THE COMMUNITY
           </h2>
-          <div className="flex flex-col sm:flex-row gap-0 max-w-lg mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-0 max-w-lg mx-auto">
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="bg-charcoal border-0 text-white placeholder-gray-500 px-6 py-4 w-full outline-none focus:ring-1 focus:ring-neon"
+              required
             />
-            <button className="bg-neon text-black font-bold px-8 py-4 uppercase tracking-wider text-sm whitespace-nowrap hover:bg-neon/90 transition-colors">
-              SUBSCRIBE
+            <button
+              type="submit"
+              className="bg-neon text-black font-bold px-8 py-4 uppercase tracking-wider text-sm whitespace-nowrap hover:bg-neon/90 transition-colors"
+            >
+              {subscribed ? "SUBSCRIBED!" : "SUBSCRIBE"}
             </button>
-          </div>
+          </form>
         </div>
 
         {/* Large Brand Name */}

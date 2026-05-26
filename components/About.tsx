@@ -14,7 +14,7 @@ export default function About() {
         className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center"
       >
         {/* Image - 3 cols */}
-        <div className="lg:col-span-3 relative aspect-[4/3] w-full overflow-hidden">
+        <div className="lg:col-span-3 relative aspect-[4/3] w-full overflow-hidden bg-charcoal">
           <Image
             src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80"
             alt="Sports car action shot"

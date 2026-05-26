@@ -2,7 +2,7 @@
   "id": "FEAT-001",
   "type": "feat",
   "description": "Scaffold the Next.js 14 project with Tailwind CSS, Framer Motion, and global styling. Set up the foundational dark-mode theme, typography, and layout structure.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Initialize a Next.js 14 project with TypeScript and App Router in /projects/sandbox/dev using pnpm (run: pnpm create next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias='@/*' --use-pnpm) - answer yes to all prompts or use flags to skip prompts",
     "Install additional dependencies: framer-motion",
@@ -22,5 +22,5 @@
     "cd /projects/sandbox/dev && pnpm build"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Next.js 14.2.x does not support next.config.ts - used next.config.mjs instead. create-next-app failed with existing .agents directory so project was manually scaffolded. pnpm build passes cleanly."
 }
